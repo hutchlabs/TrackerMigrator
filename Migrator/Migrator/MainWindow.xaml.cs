@@ -526,8 +526,10 @@ namespace Migrator
         {
             string status = (Company_Code != "") ? "Identified and Approved" : "Unidentified";
 
-            string one = string.Format("\nINSERT [Petra_tracker].[dbo].[PPayments] ([id], [job_id], [transaction_ref_no], [transaction_details], [transaction_date], [value_date], [transaction_amount], [subscription_value_date], [subscription_amount], [tier], [company_code], [company_name], [company_id], [savings_booster],[savings_booster_client_code], [status], [owner], [modified_by], [created_at], [updated_at]) VALUES ({0},1,'{1}',N'{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}',1,1,getdate(),getdate());",
-                                 ID, Transaction_Reference, Transaction_Detail, Contribution_Date, Value_Date, Transaction_Amount, Subscription_Value_Date, Subscription_Amount, Tier, Company_Code, Company_Name, Company_ID, Savings_Booster, Savings_Booster_Customer_ID, status);
+            Company_ID = (Company_ID == "" || Company_ID == "error") ? "0" : Company_ID;
+
+            string one = string.Format("\nINSERT [Petra_tracker].[dbo].[PPayments] ([id], [job_id], [transaction_ref_no], [transaction_details], [transaction_date], [value_date], [transaction_amount], [subscription_value_date], [subscription_amount], [tier], [company_code], [company_name], [company_id], [savings_booster],[savings_booster_client_code], [status], [owner], [modified_by], [created_at], [updated_at]) VALUES ({0},1,'{1}',N'{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}',{11},'{12}','{13}','{14}',1,1,getdate(),getdate());",
+                                 ID, Transaction_Reference, Transaction_Detail, Contribution_Date, Value_Date, Transaction_Amount, Subscription_Value_Date, Subscription_Amount, Tier, Company_Code, Company_Name, int.Parse(Company_ID), Savings_Booster, Savings_Booster_Customer_ID, status);
 
             one += DealDescriptionSql(ID, Contribution_Month_1, Contribution_Type_1, Contribution_Type_ID_1);
             one += DealDescriptionSql(ID, Contribution_Month_2, Contribution_Type_2, Contribution_Type_ID_2);
