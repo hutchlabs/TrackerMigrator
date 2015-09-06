@@ -18,3 +18,4 @@ C:\Users\David\Documents\coltrane\github\migrator\Migrator\Migrator\obj\Release\
 C:\Users\David\Documents\coltrane\github\migrator\Migrator\Migrator\obj\Release\Migrator.csproj.GenerateResource.Cache
 C:\Users\David\Documents\coltrane\github\migrator\Migrator\Migrator\obj\Release\Migrator.exe
 C:\Users\David\Documents\coltrane\github\migrator\Migrator\Migrator\obj\Release\Migrator.pdb
+C:\Users\David\Documents\coltrane\github\migrator\Migrator\Migrator\obj\Release\Migrator.csprojResolveAssemblyReference.cache

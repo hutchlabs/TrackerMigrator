@@ -524,7 +524,7 @@ namespace Migrator
 
         public override string Sql() 
         {
-            string status = (Company_Code != "") ? "Identified & Approved" : "Unidentified";
+            string status = (Company_Code != "") ? "Identified and Approved" : "Unidentified";
 
             string one = string.Format("\nINSERT [Petra_tracker].[dbo].[PPayments] ([id], [job_id], [transaction_ref_no], [transaction_details], [transaction_date], [value_date], [transaction_amount], [subscription_value_date], [subscription_amount], [tier], [company_code], [company_name], [company_id], [savings_booster],[savings_booster_client_code], [status], [owner], [modified_by], [created_at], [updated_at]) VALUES ({0},1,'{1}',N'{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}',1,1,getdate(),getdate());",
                                  ID, Transaction_Reference, Transaction_Detail, Contribution_Date, Value_Date, Transaction_Amount, Subscription_Value_Date, Subscription_Amount, Tier, Company_Code, Company_Name, Company_ID, Savings_Booster, Savings_Booster_Customer_ID, status);
@@ -557,7 +557,7 @@ namespace Migrator
                 {
                     string month = GetMonth(date);
                     string year = GetYear(date);
-                    return string.Format("\nINSERT [Petra_tracker].[dbo].[PDealDescriptions] ([payment_id], [month], [year], [contribution_type_id], [contribution_type], [modified_by], [created_at], [updated_at]) VALUES ({0},'{1}','{2}','{3}','{4}',1, getdate(), getdate());\n",
+                    return string.Format("\nINSERT [Petra_tracker].[dbo].[PDealDescriptions] ([payment_id], [month], [year], [contribution_type_id], [contribution_type], [owner], [modified_by], [created_at], [updated_at]) VALUES ({0},'{1}','{2}','{3}','{4}',1,1, getdate(), getdate());\n",
                                        payment_id, month, year, ctid, ct);
                 }
             }
